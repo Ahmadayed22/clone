@@ -29,6 +29,10 @@ const LogIn = () => {
 
                 navigate('/')
             }
+            else {
+                dispatch(authActions.SignInFailure(data.error));
+            }
+
         } catch (error) {
             dispatch(authActions.SignInFailure(error.message));
         }
@@ -58,7 +62,7 @@ const LogIn = () => {
                                 <Spinner size='sm' />
                                 <span className='pl-3'>Loading...</span>
                             </>
-                        ) : ('Sign Up')
+                        ) : ('Sign In')
                         }</Button>
                 </form>
                 <div className="flex gap-5 my-2 text-sm">

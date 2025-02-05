@@ -28,6 +28,9 @@ const SignUp = () => {
                 dispatch(authActions.SignInSuccess(data))
                 navigate('/')
             }
+            else {
+                dispatch(authActions.SignInFailure(data.error));
+            }
         } catch (error) {
             dispatch(authActions.SignInFailure(error.message));
         }

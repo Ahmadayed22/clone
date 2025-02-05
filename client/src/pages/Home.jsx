@@ -7,7 +7,7 @@ import Range from '../component/Range';
 import Dining from '../assets/Dining.png'
 import Bedroom from '../assets/Bedroom.png'
 import Living from '../assets/Living.png'
-import Landing from '../component/landing';
+import Landing from '../component/Landing';
 import Section3 from '../component/Section3';
 import Section4 from '../component/Section4';
 
