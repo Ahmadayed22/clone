@@ -22,6 +22,7 @@ export function Sidebardash() {
             })
             const data = await response.json()
             if (response.ok) {
+                navigate("/log-in")
                 dispatch(authActions.SignOutSuccess())
             }
             else {
