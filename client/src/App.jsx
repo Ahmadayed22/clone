@@ -13,7 +13,7 @@ import Dashboard from "./pages/Dashboard";
 
 import { Footer2 } from "./component/Footer2";
 import Createuser from "./component/Createuser";
-import Updateuser from "./component/updateuser";
+import Updateuser from "./component/Updateuser";
 function App() {
 
   return (
