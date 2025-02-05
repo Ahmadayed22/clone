@@ -4,8 +4,8 @@ import SignUp from "./pages/SignUp";
 
 import LogIn from "./pages/LogIn";
 import { Header } from "./component/Header";
-import Shope from './pages/Shope';
 
+import Shope from './pages/Shope'
 import About from "./pages/about";
 import Contact from "./pages/contact";
 import Home from "./pages/Home";
