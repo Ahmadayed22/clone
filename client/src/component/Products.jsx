@@ -12,7 +12,7 @@ const Products = ({ title, image, description, price }) => {
                         <img
                             width={500}
                             height={500}
-                            src={`http://localhost:4000${image}`}
+                            src={`https://clone-phi-green.vercel.app${image}`}
                             alt={title}
                             className="max-h-[350px]"
                             style={{ objectFit: 'cover' }}
