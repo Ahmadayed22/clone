@@ -12,6 +12,7 @@ import Section3 from '../component/Section3';
 import Section4 from '../component/Section4';
 
 const Home = () => {
+    const API_BASE_URL = import.meta.env.VITE_API_URL
     const rooms = [
         { name: 'Dining', image: Dining },
         { name: 'Bedroom', image: Bedroom },
@@ -24,7 +25,7 @@ const Home = () => {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await fetch(`/api/products/getproduct?limit=${6}&&sort=asc`);
+                const response = await fetch(`${API_BASE_URL}/api/products/getproduct?limit=${6}&&sort=asc`);
                 const data = await response.json();
                 if (response.ok) {
                     setProducts(data.products);
@@ -43,7 +44,7 @@ const Home = () => {
         const limit = 6;
 
         try {
-            const res = await fetch(`/api/products/getproduct?startIndex=${startIndex}&limit=${limit}&sort=asc`);
+            const res = await fetch(`${API_BASE_URL}/api/products/getproduct?startIndex=${startIndex}&limit=${limit}&sort=asc`);
             const data = await res.json();
 
             if (res.ok) {

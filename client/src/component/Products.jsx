@@ -2,7 +2,9 @@ import { Button, Card } from "flowbite-react";
 import PropTypes from "prop-types";
 
 const Products = ({ title, image, description, price }) => {
-    console.log(`../../../server/public${image}`);
+    // console.log(`../../../server/public${image}`);
+    const API_BASE_URL = import.meta.env.VITE_API_URL
+    console.log(API_BASE_URL)
     return (
         <div className="mt-4">
             <div className="cursor-pointer group relative gap-4">

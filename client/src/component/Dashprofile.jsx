@@ -9,7 +9,8 @@ import ModalComponent from './ModalComponent';
 import { Link, useNavigate } from 'react-router-dom';
 
 export default function DashProfile() {
-    const { userInfo, error, loading } = useSelector((state) => state.auth);
+    const API_BASE_URL = import.meta.env.VITE_API_URL
+    const { userInfo, loading } = useSelector((state) => state.auth);
     const navigate = useNavigate()
     const [updateUserSuccess, setUpdateUserSuccess] = useState(null);
     const [updateUserError, setUpdateUserError] = useState(null);
@@ -39,7 +40,7 @@ export default function DashProfile() {
 
         try {
             dispatch(authActions.updateStart());
-            const res = await fetch(`/api/user/update/${userInfo._id}`, {
+            const res = await fetch(`${API_BASE_URL}/api/user/update/${userInfo._id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),

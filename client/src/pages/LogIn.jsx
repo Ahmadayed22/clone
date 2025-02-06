@@ -11,11 +11,12 @@ const LogIn = () => {
     const handelInputForm = (e) => {
         SetInputForm({ ...inputForm, [e.target.id]: e.target.value })
     }
+    const API_BASE_URL = import.meta.env.VITE_API_URL
     const handelSubmit = async (e) => {
         e.preventDefault();
         dispatch(authActions.SignInStart())
         try {
-            const response = await fetch("/api/auth//login", {
+            const response = await fetch(`${API_BASE_URL}/api/auth//login`, {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json",

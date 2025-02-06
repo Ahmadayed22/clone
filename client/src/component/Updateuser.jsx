@@ -13,6 +13,7 @@ const Updateuser = () => {
     const [formData, setFormData] = useState({});
 
     const { loading, error } = useSelector((state) => state.auth);
+    const API_BASE_URL = import.meta.env.VITE_API_URL
     const handelInputForm = (e) => {
         const { id, value } = e.target;
 
@@ -25,7 +26,7 @@ const Updateuser = () => {
         const fetchUserData = async () => {
 
             try {
-                const res = await fetch(`/api/user/:${userId}`);
+                const res = await fetch(`${API_BASE_URL}/api/user/:${userId}`);
                 const data = await res.json();
 
                 if (!res.ok) {
@@ -44,7 +45,7 @@ const Updateuser = () => {
         e.preventDefault();
         dispatch(authActions.SignInStart())
         try {
-            const response = await fetch(`/api/user/updateByAdmin/${userId}`, {
+            const response = await fetch(`${API_BASE_URL}/api/user/updateByAdmin/${userId}`, {
                 method: 'PUT',
                 headers: {
                     "Content-Type": "application/json",

@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Dashproduct = () => {
+    const API_BASE_URL = import.meta.env.VITE_API_URL
     const { userInfo } = useSelector((state) => state.auth);
     const [userProduct, setuserProduct] = useState([]);
     const [ShowMore, SetShowMore] = useState(true);
@@ -14,7 +15,7 @@ const Dashproduct = () => {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const res = await fetch(`/api/products/getproduct?userId=${userInfo._id}`);
+                const res = await fetch(`${API_BASE_URL}/api/products/getproduct?userId=${userInfo._id}`);
                 const data = await res.json();
                 if (res.ok) {
                     setuserProduct(data.products);
@@ -34,7 +35,7 @@ const Dashproduct = () => {
     const handleShowMore = async () => {
         const startIndex = userInfo.length
         try {
-            const res = await fetch(`/api/products/getproduct?userId=${userInfo._id}&startIndex=${startIndex}`);
+            const res = await fetch(`${API_BASE_URL}/api/products/getproduct?userId=${userInfo._id}&startIndex=${startIndex}`);
             const data = await res.json();
             if (res.ok) {
                 setuserProduct((prev) => [...prev, ...data.products]);
@@ -51,7 +52,7 @@ const Dashproduct = () => {
         SetShowModal(false);
         try {
 
-            const res = await fetch(`/api/products/deletProduct/:${producttIdToDelete}/${userInfo._id}`, {
+            const res = await fetch(`${API_BASE_URL}/api/products/deletProduct/:${producttIdToDelete}/${userInfo._id}`, {
                 method: 'DELETE',
                 credentials: 'include',
                 headers: {

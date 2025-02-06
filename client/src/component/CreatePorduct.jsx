@@ -2,6 +2,8 @@ import { useState } from "react";
 import { FileInput, Label, TextInput, Button } from "flowbite-react";
 
 const CreateProduct = () => {
+    const API_BASE_URL = import.meta.env.VITE_API_URL
+
     const [image, setImage] = useState(null);
     const [imagePreview, setImagePreview] = useState(null);
     const [inputForm, setInputForm] = useState({
@@ -31,7 +33,7 @@ const CreateProduct = () => {
         formData.append("price", inputForm.price);
 
         try {
-            const response = await fetch("/api/products/createproduct", {
+            const response = await fetch(`${API_BASE_URL}/api/products/createproduct`, {
                 method: "POST",
                 body: formData,
             });

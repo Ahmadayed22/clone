@@ -14,17 +14,12 @@ import Dashboard from "./pages/Dashboard";
 import { Footer2 } from "./component/Footer2";
 import Createuser from "./component/Createuser";
 import Updateuser from "./component/Updateuser";
+
 function App() {
 
   return (
     <>
-      <html>
-        <head>
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
-        </head>
 
-      </html>
       <Router>
         <Header />
         <Routes>

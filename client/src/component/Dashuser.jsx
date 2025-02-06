@@ -6,17 +6,18 @@ import { FaCheck, FaTimes } from 'react-icons/fa'
 import { Link } from "react-router";
 import { IoMdSearch } from "react-icons/io";
 const DashUsers = () => {
+    const API_BASE_URL = import.meta.env.VITE_API_URL
     const { userInfo } = useSelector((state) => state.auth);
     const [users, setusers] = useState([]);
     const [ShowMore, SetShowMore] = useState(true);
     const [showModal, SetShowModal] = useState(false);
     const [userIdToDelete, setuserIdToDelete] = useState('');
     const [search, setSearch] = useState('')
-    "/api/user/getusers/searchTerm=${search}"
+    "${API_BASE_URL}/api/user/getusers/searchTerm=${search}"
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const res = await fetch(`/api/user/getusers `, {
+                const res = await fetch(`${API_BASE_URL}/api/user/getusers `, {
                     credentials: 'include',
                     headers: {
                         'Content-Type': 'application/json',
@@ -44,7 +45,7 @@ const DashUsers = () => {
     const handleShowMore = async () => {
         const startIndex = users.length
         try {
-            const res = await fetch(`/api/user/getusers?startIndex=${startIndex}`, {
+            const res = await fetch(`${API_BASE_URL}/api/user/getusers?startIndex=${startIndex}`, {
                 credentials: 'include',
                 headers: {
                     'Content-Type': 'application/json',
@@ -66,7 +67,7 @@ const DashUsers = () => {
 
     const HandelDelteUser = async () => {
         try {
-            const res = await fetch(`/api/user/delete/:${userIdToDelete}`, {
+            const res = await fetch(`${API_BASE_URL}/api/user/delete/:${userIdToDelete}`, {
                 method: 'DELETE',
                 credentials: 'include',
                 headers: {
@@ -90,7 +91,7 @@ const DashUsers = () => {
         if (!search) return;
 
         try {
-            const res = await fetch(`/api/user/getusers?searchTerm=${search}`, {
+            const res = await fetch(`${API_BASE_URL}/api/user/getusers?searchTerm=${search}`, {
                 credentials: 'include',
                 headers: {
                     'Content-Type': 'application/json',

@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from '../store/auth'
 const Createuser = () => {
-
+    const API_BASE_URL = import.meta.env.VITE_API_URL
     const navigate = useNavigate()
     const [inputForm, SetInputForm] = useState({})
     const dispatch = useDispatch()
@@ -23,7 +23,7 @@ const Createuser = () => {
         e.preventDefault();
         dispatch(authActions.SignInStart())
         try {
-            const response = await fetch("/api/user/createUser", {
+            const response = await fetch(`${API_BASE_URL}/api/user/createUser`, {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json",

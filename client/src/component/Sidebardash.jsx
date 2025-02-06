@@ -11,13 +11,14 @@ import { Link, useNavigate } from "react-router";
 
 
 export function Sidebardash() {
+    const API_BASE_URL = import.meta.env.VITE_API_URL
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const { userInfo } = useSelector((state) => state.auth)
     const handelSignOut = async () => {
         dispatch(authActions.SignOutStart())
         try {
-            const response = await fetch("/api/auth/signout", {
+            const response = await fetch(`${API_BASE_URL}/api/auth/signout`, {
                 method: 'POST'
             })
             const data = await response.json()
